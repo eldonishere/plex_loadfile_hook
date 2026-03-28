@@ -13,8 +13,25 @@ This release makes use of DLL proxying to inject `plex_loadfile_hook` when Plex 
 
 Windows only. Binaries provided for x86_64, but it should work for 32-bit as well.
 
-1. Download `d3d11.dll` from [the latest release](https://github.com/yuv420p10le/plex_loadfile_hook/releases/latest/download/d3d11.dll) and put it in your Plex installation folder. (e.g. `C:\Program Files\Plex\Plex`)
+1. Download `d3d11.dll` from [the latest release](https://github.com/eldonishere/plex_loadfile_hook/releases/latest/download/d3d11.dll) and put it in your Plex installation folder. (e.g. `C:\Program Files\Plex\Plex`)
 2. Grab the latest `libmpv` (`mpv-dev`) build from [shinchiro's provided builds](https://github.com/shinchiro/mpv-winbuild-cmake/releases/latest), rename `libmpv-2.dll` to `mpv-2.dll`, and replace `mpv-2.dll` in the Plex installation folder with it.
+
+## Releases
+
+Tagged releases are built automatically with GitHub Actions and upload `d3d11.dll` to the GitHub Releases page.
+
+To publish a new release:
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+## Building
+
+This project currently builds on Windows only.
+
+The GitHub Actions workflow installs `MinHook` with `vcpkg` and builds the `Release|x64` configuration from `plex_loadfile_hook.sln`.
 
 ## Use new settings
 
